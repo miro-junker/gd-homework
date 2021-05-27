@@ -17,13 +17,15 @@ const Sidebar: React.FC<ISidebar> = props => {
 
     const { result, status } = useDataView({ execution }, [execution?.fingerprint()]);
 
-    return (
-        <>
-            {status === "error" && <>N/A</>}
-            {status === "loading" && <LoadingComponent />}
-            {status === "success" && <RevenueCalculator data={result} />}
-        </>
-    );
+    if (status === "loading") {
+        return <LoadingComponent />;
+    }
+
+    if (status === "error" || !result) {
+        return <h2>N/A</h2>;
+    }
+
+    return <RevenueCalculator data={result} />;
 };
 
 export default Sidebar;
