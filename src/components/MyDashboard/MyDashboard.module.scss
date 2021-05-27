@@ -1,0 +1,34 @@
+$space: 30px;
+$border: 1px solid #ebebeb;
+
+.columns {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter {
+    margin-bottom: $space;
+    padding: 0 $space;
+    border: $border;
+}
+
+.side {
+    border: $border;
+    padding: $space;
+}
+
+@media (min-width: 800px) {
+    .columns {
+        flex-direction: row;
+    }
+
+    .side {
+        flex: 1;
+        display: flex;
+    }
+
+    .chart {
+        flex: 3;
+        padding-right: $space;
+    }
+}
