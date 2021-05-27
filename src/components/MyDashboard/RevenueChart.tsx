@@ -1,7 +1,6 @@
 import React from "react";
 import { LineChart } from "@gooddata/sdk-ui-charts";
 import { INullableFilter } from "@gooddata/sdk-model";
-
 import { DateDatasets, Product, Revenue } from "../../ldm/full";
 interface IRevenueChart {
     filters: INullableFilter[];

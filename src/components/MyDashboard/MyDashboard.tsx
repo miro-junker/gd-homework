@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import styles from "./MyDashboard.module.scss";
 import RevenueChart from "./RevenueChart";
 import Sidebar from "./Sidebar";
 import Filter, { IDateFilterComponentState } from "./Filter";
 import { DateFilterHelpers, defaultDateFilterOptions } from "@gooddata/sdk-ui-filters";
 import { DateDatasets } from "../../ldm/full";
+import styles from "./MyDashboard.module.scss";
 
 const getFilterName = (filter: IDateFilterComponentState) => {
     return filter.selectedFilterOption.localIdentifier.replace(/_/g, " ");
