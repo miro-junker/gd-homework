@@ -1,0 +1,18 @@
+$space: 30px;
+
+.columns {
+    display: flex;
+}
+
+.filter {
+    margin-bottom: $space;
+}
+
+.chart {
+    flex: 3;
+    padding-right: $space;
+}
+
+.side {
+    flex: 1;
+}

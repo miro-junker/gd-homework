@@ -11,7 +11,6 @@ import Home from "./Home";
 
 import styles from "./AppRouter.module.scss";
 
-// Uncomment these lines if you want to redirect unauthorized users to login form
 import { useAuth } from "../contexts/Auth";
 import { AuthStatus } from "../contexts/Auth/state";
 const RedirectIfNotLoggedIn: React.FC = () => {
@@ -31,7 +30,6 @@ const AppRouter: React.FC = () => {
                     <Route exact path="/dashboard" component={() => <Page>Dashboard</Page>} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/logout" component={Logout} />
-                    {/* Uncomment the next line if you want to redirect unauthorized users to login form */}
                     <RedirectIfNotLoggedIn />
                 </WorkspaceProvider>
             </Router>
