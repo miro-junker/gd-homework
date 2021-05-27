@@ -1,6 +1,6 @@
 import React from "react";
-import { DateFilter, DateFilterOption } from "@gooddata/sdk-ui-filters";
-import { availableGranularities, defaultDateFilterOptions } from "./filterOptions";
+import { DateFilter, DateFilterOption, defaultDateFilterOptions } from "@gooddata/sdk-ui-filters";
+import { availableGranularities } from "./filterOptions";
 
 export interface IDateFilterComponentState {
     selectedFilterOption: DateFilterOption;
