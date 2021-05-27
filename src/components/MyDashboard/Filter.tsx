@@ -6,14 +6,14 @@ export interface IDateFilterComponentState {
     selectedFilterOption: DateFilterOption;
     excludeCurrentPeriod: boolean;
 }
-interface FilterProps {
+interface IFilter {
     state: IDateFilterComponentState;
     setStateFn: (input: IDateFilterComponentState) => void;
 }
 
 const style = { width: 300 };
 
-const Filter: React.FC<FilterProps> = props => {
+const Filter: React.FC<IFilter> = props => {
     const onApply = (selectedFilterOption: DateFilterOption, excludeCurrentPeriod: boolean) => {
         props.setStateFn({
             selectedFilterOption,

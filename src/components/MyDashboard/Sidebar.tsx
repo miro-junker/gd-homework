@@ -4,11 +4,11 @@ import { INullableFilter } from "@gooddata/sdk-model";
 import { DateDatasets, Product, Revenue } from "../../ldm/full";
 import RevenueCalculator from "./RevenueCalculator";
 
-interface SidebarProps {
+interface ISidebar {
     filters: INullableFilter[];
 }
 
-const Sidebar: React.FC<SidebarProps> = props => {
+const Sidebar: React.FC<ISidebar> = props => {
     const execution = useExecution({
         seriesBy: [Product.Default, Revenue],
         slicesBy: [DateDatasets.Date.Month.Short],
