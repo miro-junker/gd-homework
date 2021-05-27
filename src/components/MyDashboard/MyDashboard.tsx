@@ -27,7 +27,7 @@ const MyDashboard: React.FC = () => {
 
             <div className={styles.columns}>
                 <div className={styles.chart}>
-                    <RevenueChart filter={dateFilter} />
+                    <RevenueChart filters={dateFilter ? [dateFilter] : []} />
                 </div>
 
                 <div className={styles.side}>

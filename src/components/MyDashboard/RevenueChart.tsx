@@ -4,7 +4,7 @@ import { INullableFilter } from "@gooddata/sdk-model";
 
 import { DateDatasets, Product, Revenue } from "../../ldm/full";
 interface RevenueChartProps {
-    filter?: INullableFilter;
+    filters: INullableFilter[];
 }
 
 const chartStyle = { height: 300 };
@@ -16,7 +16,7 @@ const RevenueChart: React.FC<RevenueChartProps> = props => {
                 measures={[Revenue]}
                 segmentBy={Product.Default}
                 trendBy={DateDatasets.Date.Month.Short}
-                filters={props.filter ? [props.filter] : undefined}
+                filters={props.filters}
             />
         </div>
     );
