@@ -18,11 +18,11 @@ const Sidebar: React.FC<ISidebar> = props => {
     const { result, status } = useDataView({ execution }, [execution?.fingerprint()]);
 
     return (
-        <div>
+        <>
             {status === "error" && <>N/A</>}
             {status === "loading" && <LoadingComponent />}
             {status === "success" && <RevenueCalculator data={result} />}
-        </div>
+        </>
     );
 };
 
