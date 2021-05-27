@@ -1,19 +1,26 @@
 import React from "react";
 import { DateFilter, DateFilterOption, defaultDateFilterOptions } from "@gooddata/sdk-ui-filters";
-import { availableGranularities } from "./filterOptions";
+import { DateFilterGranularity } from "@gooddata/sdk-backend-spi";
 
 export interface IDateFilterComponentState {
     selectedFilterOption: DateFilterOption;
     excludeCurrentPeriod: boolean;
 }
-interface FilterProps {
+interface IFilter {
     state: IDateFilterComponentState;
     setStateFn: (input: IDateFilterComponentState) => void;
 }
 
+export const availableGranularities: DateFilterGranularity[] = [
+    "GDC.time.date",
+    "GDC.time.month",
+    "GDC.time.quarter",
+    "GDC.time.year",
+];
+
 const style = { width: 300 };
 
-const Filter: React.FC<FilterProps> = props => {
+const Filter: React.FC<IFilter> = props => {
     const onApply = (selectedFilterOption: DateFilterOption, excludeCurrentPeriod: boolean) => {
         props.setStateFn({
             selectedFilterOption,

@@ -6,6 +6,10 @@ import Filter, { IDateFilterComponentState } from "./Filter";
 import { DateFilterHelpers, defaultDateFilterOptions } from "@gooddata/sdk-ui-filters";
 import { DateDatasets } from "../../ldm/full";
 
+const getFilterName = (filter: IDateFilterComponentState) => {
+    return filter.selectedFilterOption.localIdentifier.replace(/_/g, " ");
+};
+
 const MyDashboard: React.FC = () => {
     const [filterState, setFilterState] = useState<IDateFilterComponentState>({
         selectedFilterOption: defaultDateFilterOptions.allTime!,
@@ -18,20 +22,22 @@ const MyDashboard: React.FC = () => {
         filterState.excludeCurrentPeriod,
     );
 
+    const filtersArray = dateFilter ? [dateFilter] : [];
+
     return (
         <div>
-            <h1>My dashboard {filterState.selectedFilterOption.localIdentifier}</h1>
+            <h1>My dashboard {getFilterName(filterState)}</h1>
             <div className={styles.filter}>
                 <Filter state={filterState} setStateFn={setFilterState} />
             </div>
 
             <div className={styles.columns}>
                 <div className={styles.chart}>
-                    <RevenueChart filters={dateFilter ? [dateFilter] : []} />
+                    <RevenueChart filters={filtersArray} />
                 </div>
 
                 <div className={styles.side}>
-                    <Sidebar />
+                    <Sidebar filters={filtersArray} />
                 </div>
             </div>
         </div>

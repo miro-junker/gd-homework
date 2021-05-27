@@ -1,0 +1,23 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.value {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.form {
+    border: none;
+    padding: 0;
+}
+
+.select {
+    border: 1px solid #ebebeb;
+    padding: 15px;
+    background: #fff;
+    margin-top: 10px;
+    border-radius: 10px;
+}
