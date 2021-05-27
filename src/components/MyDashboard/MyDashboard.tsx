@@ -2,12 +2,16 @@ import React from "react";
 import styles from "./MyDashboard.module.scss";
 import RevenueChart from "./RevenueChart";
 import Sidebar from "./Sidebar";
+import Filter from "./Filter";
 
 const MyDashboard: React.FC = () => {
     return (
         <div>
             <h1>My dashboard</h1>
-            <div className={styles.filter}>Filter</div>
+            <div className={styles.filter}>
+                <Filter />
+            </div>
+
             <div className={styles.columns}>
                 <div className={styles.chart}>
                     <RevenueChart />
