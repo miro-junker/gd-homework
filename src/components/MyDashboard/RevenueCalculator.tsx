@@ -1,8 +1,8 @@
+import { DataViewFacade } from "@gooddata/sdk-ui";
 import React, { useState } from "react";
 import styles from "./RevenueCalculator.module.scss";
-
 interface IRevenueCalculator {
-    data: any;
+    data: DataViewFacade;
 }
 
 enum Mode {
@@ -27,12 +27,13 @@ const RevenueCalculator: React.FC<IRevenueCalculator> = ({ data }) => {
 
     const allValues = data.dataView.data
         .flat()
-        .filter((item: string | null) => item !== null)
-        .map((input: string) => Number(input));
+        .filter(item => typeof item === "string")
+        .map(input => Number(input));
 
     return (
         <div className={styles.root}>
             <h2 className={styles.value}>{getExtremeValue(modeState, allValues)}</h2>
+
             <fieldset className={styles.form}>
                 <legend>Calculation selector</legend>
                 <select
